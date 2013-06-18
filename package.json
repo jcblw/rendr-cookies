@@ -10,13 +10,13 @@
   "keywords": [
     "rendr",
     "backbone",
-    "cookies",
+    "cookie",
     "parse"
   ],
   "author": "jacob lowe <http://jacoblowe.me>",
   "license": "MIT",
   "dependencies": {
-    "cookies": "~0.3.6",
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "cookie": "~0.1.0"
   }
 }

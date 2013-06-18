@@ -1,6 +1,6 @@
 var 
 // depedencies
-Cookies = require("cookies"),
+Cookies = require("cookie"),
 _ = require("underscore");
 
 // getAll is a method that gets all cookies 
