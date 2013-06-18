@@ -1,6 +1,9 @@
 var 
+// depedencies
 Cookies = require("cookies"),
 _ = require("underscore");
+
+// getAll is a method that gets all cookies 
 
 var getAll = exports.getAll = function(){
 
@@ -24,7 +27,6 @@ exports.get = function( name ){
 	return null;
 
 }
-
 
 // set the cookie is the a way to set a cookie the frist param
 // is the cookie name and the soecond is the payload to be set
