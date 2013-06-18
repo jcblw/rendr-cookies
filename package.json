@@ -14,5 +14,9 @@
     "parse"
   ],
   "author": "jacob lowe <http://jacoblowe.me>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cookies": "~0.3.6",
+    "underscore": "~1.4.4"
+  }
 }
