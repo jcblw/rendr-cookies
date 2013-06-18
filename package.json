@@ -1,0 +1,18 @@
+{
+  "name": "rendr-cookies",
+  "version": "0.0.0",
+  "description": "rendr allows you to use cookies with the rendr engine and write and read cookies both server and client side",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": "",
+  "keywords": [
+    "rendr",
+    "backbone",
+    "cookies",
+    "parse"
+  ],
+  "author": "jacob lowe <http://jacoblowe.me>",
+  "license": "MIT"
+}
