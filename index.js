@@ -1,16 +1,16 @@
 var 
 // depedencies
 Cookies = require("cookie"),
-_ = require("underscore");
+_ = require("underscore"),
 
 // getAll is a method that gets all cookies 
 
-var getAll = exports.getAll = function(){
+getAll = function(){
 
 	if(typeof document === "object"){
 		return Cookies.parse(document.cookie);
 	}else{
-		return Cookies.parse(this.app.req.headers.cookies);
+		return Cookies.parse(this.app.req.headers.cookie);
 	}
 
 }
@@ -20,11 +20,17 @@ var getAll = exports.getAll = function(){
 
 exports.get = function( name ){
 
-	var cookies = getAll() || {}; 
-	_.forEach(cookies, function(value, key, list){
-		if(cookies[key] === name) return cookies[key];
-	});
-	return null;
+	var 
+	cookies = getAll.call(this) || {},
+	pattern = new RegExp(name),
+	value;
+
+	for(var key in cookies){
+		if(pattern.test(key)) {
+			value = decodeURIComponent(cookies[key]);
+		}
+	}
+	return value;
 
 }
 
@@ -38,9 +44,11 @@ exports.set = function( name, value, opts ){
 		var cookie = Cookies.serialize( name, value, opts );
 		document.cookie += cookies;
 		// do client stuff
+	// this will probably wont e here
 	}else if(typeof this.app.res === "object"){
 		res.cookie( name, value, opts );
 		// do server stuff
 	}
 }
 
+exports.getAll = getAll;
