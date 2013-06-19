@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test"
   },
-  "repository": "",
+  "repository": "https://github.com/jacoblwe20/rendr-cookies.git",
   "keywords": [
     "rendr",
     "backbone",
