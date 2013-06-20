@@ -2,6 +2,8 @@ var
 // depedencies
 Cookies = require("cookie"),
 _ = require("underscore"),
+// depends on having rendr installed
+baseModel = require("../rendr/shared/base/view"),
 
 // getAll is a method that gets all cookies 
 
@@ -10,8 +12,12 @@ getAll = function(){
 	if(typeof document === "object"){
 		return Cookies.parse(document.cookie);
 	}else{
-		return Cookies.parse(this.app.req.headers.cookie);
+		if( typeof this.app.req.headers.cookie === "string" ){
+			return Cookies.parse(this.app.req.headers.cookie);
+		}
 	}
+
+	return null;
 
 }
 
@@ -26,10 +32,11 @@ exports.get = function( name ){
 	value;
 
 	for(var key in cookies){
-		if(pattern.test(key)) {
+		if(key === name) {
 			value = decodeURIComponent(cookies[key]);
 		}
 	}
+
 	return value;
 
 }
