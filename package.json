@@ -1,6 +1,6 @@
 {
   "name": "rendr-cookies",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "rendr allows you to use cookies with the rendr engine and write and read cookies both server and client side",
   "main": "index.js",
   "scripts": {
