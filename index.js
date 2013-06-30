@@ -15,6 +15,7 @@ getAll = function(){
 		if( typeof this.app.req.headers.cookie === "string" ){
 			return Cookies.parse(this.app.req.headers.cookie);
 		}
+		return null;
 	}
 
 	return null;
