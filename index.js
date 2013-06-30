@@ -20,7 +20,7 @@ getAll = function(){
 
 	return null;
 
-}
+};
 
 // get the cookies by name, first param is the name of the cookie
 // this should be a string
@@ -30,17 +30,32 @@ exports.get = function( name ){
 	var 
 	cookies = getAll.call(this) || {},
 	pattern = new RegExp(name),
-	value;
+	value, 
+	obj;
 
 	for(var key in cookies){
 		if(key === name) {
 			value = decodeURIComponent(cookies[key]);
 		}
 	}
+	// since we are using express's default cookies
+	try {
+		obj = JSON.parse(value.replace(/^j:/, ""));
+	} catch(){
 
-	return value;
+		if( console ){
+			// lets no throw 
+			console.error("could not parse " + name + " cookie to an object");
+		}
 
-}
+		obj = value; 
+		// reset value to string value if error occurs in json parse
+	}
+
+
+	return obj;
+
+};
 
 // set the cookie is the a way to set a cookie the frist param
 // is the cookie name and the soecond is the payload to be set
@@ -57,6 +72,6 @@ exports.set = function( name, value, opts ){
 		res.cookie( name, value, opts );
 		// do server stuff
 	}
-}
+};
 
 exports.getAll = getAll;
