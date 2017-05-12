@@ -1,5 +1,7 @@
 # rendr cookies
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jcblw/rendr-cookies.svg)](https://greenkeeper.io/)
+
 right now only reading cookies works...
 
 in therory, add the cookies module to your rendr app. Include the cookies module when compiling for client side, and you should be able to work with cookies either client side or server side
